@@ -1,1 +1,28 @@
 @import "tailwindcss";
+
+.flex-row {
+  @apply flex flex-row;
+}
+
+.flex-col {
+  @apply flex flex-col;
+}
+
+html,
+body {
+  width: 100%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .sidebar {
+    ul {
+      @apply flex flex-col justify-start items-center gap-5 size-full pt-10;
+
+      li {
+        @apply w-full flex justify-center items-center;
+      }
+    }
+  }
+}
