@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-xs: 20rem;
+}
+
 .flex-row {
   @apply flex flex-row;
 }
@@ -13,6 +17,27 @@ body {
   width: 100%;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  color: white;
+}
+
+@layer base {
+    h1 {
+    @apply text-3xl leading-10 ;  /* Small Mobile default */
+    @apply sm:text-3xl; /* Standard Mobile */
+    @apply md:text-4xl; /* Tablet */
+    @apply lg:text-5xl; /* Desktop */
+  }
+
+  p {
+    @apply text-[14px] leading-relaxed xs:text-[15px]; /* Small Mobile */
+    @apply sm:text-sm; /* Standard Mobile */
+    @apply md:text-[20px]; /* Tablet & Desktop */
+  }
+  button {
+    @apply text-[15px] capitalize leading-relaxed text-black; /* Small Mobile */
+    @apply sm:text-sm; /* Standard Mobile */
+    @apply md:text-[20px]; /* Tablet & Desktop */
+  }
 }
 
 @layer components {

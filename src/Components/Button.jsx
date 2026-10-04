@@ -1,7 +1,7 @@
 
 
-const Button = ({ btnName, style = "w-fit h-[2rem] flex justify-center items-center p-4 rounded rounded-full bg-white" }) => {
-  return <div className={style}>{btnName}</div>;
+const Button = ({ btnName, style = "w-full p-1 text-black flex justify-center items-center rounded rounded-full bg-white text-wrap text-xs" }) => {
+  return <button className={style}>{btnName}</button>;
 };
 
 export default Button;

@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <nav className="flex-row justify-between w-screen h-20 bg-transparent">
-      <Button btnName={"brighthome"} />
+      <h2>Brighthome</h2>
 
       <Menu onClick={() => setSidebar(prev => !prev)} className="cursor-pointer xl:hidden" />
 
@@ -21,7 +21,7 @@ const Navbar = () => {
           <Button btnName={"contact"} />
         </div>
 
-        <Button btnName={"get a quote"} />
+        <Button btnName={"get a quote"} style={"rounded rounded-0 bg-white  w-full text-red"} />
       </div>
     </nav>
   );
