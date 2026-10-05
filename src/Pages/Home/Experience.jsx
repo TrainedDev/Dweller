@@ -12,9 +12,9 @@ const Experience = () => {
   } = realEstateData;
 
   return (
-    <section className="flex-col gap-10 p-1 text-black capitalize justify-center items-center w-screen min-h-dvh">
+    <section className="flex-col gap-10 text-black capitalize justify-center items-center w-full min-h-dvh">
       <div className="flex-col gap-5 justify-center items-center text-start w-full">
-        <h1 className="">result that speaks for themselves.</h1>
+        <h2 className="">result that speaks for themselves.</h2>
         <p>
           Brighthome successfully matched with premium homes with families
           across top neighborhoods, ensuring satisfaction, value, and smooth

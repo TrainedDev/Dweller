@@ -9,13 +9,22 @@ const Properties = ({
   propertiesList = false,
 }) => {
   return (
-    <section className="flex-col p-2 justify-center gap-8 items-center w-screen min-h-dvh bg-black">
+    <section
+    id={propertiesList ? "properties": "services"}
+      className={`flex-col p-2 justify-center gap-8  items-center w-full min-h-dvh ${propertiesList ? "bg-black text-white rounded-xl" : "bg-white text-black"}`}
+    >
       <div className="flex-col justify-center items-start w-full h-auto capitalize text-left gap-5">
-        <h2 className=" text-xl">{title}</h2>
+        <h2>{title}</h2>
         <p>{description}</p>
-        <div className={` bg-green-400 flex-row justify-center items-center ${btn.length>1 ? "w-full gap-3 p-1 rounded-full":"w-[60%]"}`}>
+        <div
+          className={` bg-green-400 flex-row justify-between items-center ${btn.length > 1 ? "w-full gap-3 p-1 h-8 rounded-full" : "w-[60%]"}`}
+        >
           {btn.map((ele, i) => (
-            <Button key={i} btnName={ele} style={`rounded cursor-pointer rounded-0 bg-white flex justify-center p-1 ${btn.length > 1? "w-[35%] rounded rounded-full":"w-full"}`} />
+            <Button
+              key={i}
+              btnName={ele}
+              style={`rounded cursor-pointer rounded-0 bg-white flex justify-center p-1 ${btn.length > 1 ? "w-[25%] flex-row justify-center items-center h-full rounded rounded-full" : "w-full"}`}
+            />
           ))}
         </div>
       </div>

@@ -3,11 +3,11 @@ import { useContext } from "react";
 import { SideBarContext } from "../Context/contexts";
 
 const Sidebar = () => {
-  const { sideBar, setSidebar } = useContext(SideBarContext);
+  const { sidebar, setSidebar } = useContext(SideBarContext);
 
   return (
     <div
-      className={`sidebar w-[60%] min-h-dvh absolute top-0 transition-transform ease-in duration-1000 capitalize z-30 ${sideBar ? "-translate-x-100" : "translate-x-0 bg-green-400"}`}
+      className={`sidebar w-[60%] min-h-dvh absolute top-0 transition-transform ease-in duration-1000 capitalize z-30 ${!sidebar ? "-translate-x-100" : "translate-x-0 backdrop-blur-2xl"}`}
     >
       <div
         onClick={() => setSidebar((prev) => !prev)}

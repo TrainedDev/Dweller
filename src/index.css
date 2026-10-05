@@ -21,11 +21,15 @@ body {
 }
 
 @layer base {
-    h1 {
-    @apply text-3xl leading-10 ;  /* Small Mobile default */
+  h1 {
+    @apply text-3xl leading-10; /* Small Mobile default */
     @apply sm:text-3xl; /* Standard Mobile */
     @apply md:text-4xl; /* Tablet */
     @apply lg:text-5xl; /* Desktop */
+  }
+
+  h2 {
+    @apply text-[16px] font-bold;
   }
 
   p {
@@ -46,7 +50,7 @@ body {
       @apply flex flex-col justify-start items-center gap-5 size-full pt-10;
 
       li {
-        @apply w-full flex justify-center items-center;
+        @apply w-full flex justify-center items-center cursor-pointer hover:bg-white hover:text-black;
       }
     }
   }

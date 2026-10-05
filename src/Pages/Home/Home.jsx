@@ -5,7 +5,7 @@ import Experience from "./Experience";
 import Clients from "./Clients";
 const Home = () => {
   return (
-    <>
+    <section className="w-screen h-auto flex-col justify-center items-center bg- pl-1 pr-1 gap-5">
       <Hero />
       <Properties
         title="
@@ -26,7 +26,7 @@ const Home = () => {
       />
       <Experience />
       <Clients />
-    </>
+      </section>
   );
 };
 
