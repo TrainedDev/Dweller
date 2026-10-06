@@ -1,8 +1,10 @@
-export const ServiceCard = ({ name, img }) => {
-  console.log(name, img);
-
+export const ServiceCard = ({ name, img, index }) => {
   return (
-    <li className=" aspect-square w-62.5 flex-col gap-4">
+    // <li className=" aspect-square w-62.5 flex-col gap-4">
+    <li
+      key={index}
+      className="property_card_item aspect-square w-full flex-col gap-4"
+    >
       <img src={img} className="w-full object-cover" alt="random image" />
       <p>{name}</p>
     </li>
@@ -10,6 +12,7 @@ export const ServiceCard = ({ name, img }) => {
 };
 
 export const PropertiesCard = ({
+  index,
   propertyImg,
   propertyName,
   propertyAddress,
@@ -17,9 +20,16 @@ export const PropertiesCard = ({
   additionalDetails,
 }) => {
   return (
-    <li className="w-62.5 p-1 rounded-xl bg-yellow-900">
+    <li
+      key={index}
+      className="w-full property_card_item  p-1 rounded-xl bg-yellow-900"
+    >
       <div className="w-full ">
-        <img src={propertyImg} className="size-full rounded-xl" alt="certain image" />
+        <img
+          src={propertyImg}
+          className="size-full rounded-xl"
+          alt="certain image"
+        />
         <div className="flex-col justify-center gap-4 items-center w-full">
           <div className="flex-row justify-around items-start w-full">
             <div className="flex-col text-start text-xs justify-start w-[80%] items-center">

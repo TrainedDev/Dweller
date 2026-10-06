@@ -16,7 +16,7 @@ const Hero = () => {
     const t1 = gsap.timeline({
       scrollTrigger: {
         target: "#home",
-        start: "top top",
+        start: "top 1%",
         bottom: "bottom bottom",
         markers: true,
         // scrub:true
