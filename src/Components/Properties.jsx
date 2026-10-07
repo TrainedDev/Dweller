@@ -8,7 +8,6 @@ import { useRef } from "react";
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Properties = ({
-  title,
   description,
   btn,
   serviceList = false,
@@ -20,10 +19,11 @@ const Properties = ({
     () => {
       // 1. By scoping this to containerRef, "#property_title" only selects inside THIS component instance
       const titleAnim = new SplitText("#property_title", {
-        type: "chars",
+        type: "words,chars",
       });
       const descAnim = new SplitText("#property_desc", {
         type: "lines",
+        linesClass: "w-fit text-nowrap",
       });
 
       const t1 = gsap.timeline({
@@ -55,6 +55,10 @@ const Properties = ({
         { opacity: 0, y: "30px" },
         { opacity: 1, stagger: 0.05, y: "0px" },
       );
+      return () => {
+        titleAnim.revert();
+        descAnim.revert();
+      };
     },
     { scope: containerRef, dependencies: [propertiesList] },
   );
@@ -63,57 +67,66 @@ const Properties = ({
     <section
       ref={containerRef}
       id={propertiesList ? "properties" : "services"}
-      className={`flex flex-col p-2 justify-center gap-8 items-center w-full min-h-dvh ${
+      className={` flex-col p-2  justify-center gap-8 items-center w-full min-h-dvh ${
         propertiesList
           ? "bg-black text-white rounded-xl"
           : "bg-white text-black"
       }`}
     >
-      <div className="flex flex-col justify-center items-start w-full h-auto capitalize text-left gap-5">
-        <h2 id="property_title">{title}</h2>
-        <p id="property_desc">{description}</p>
+      <div className="flex flex-col justify-center items-start w-full h-auto capitalize text-left gap-5 xs:items-center xs:text-center md:w-[90%]">
+        {propertiesList ? (
+          <h2 id="property_title" className="w-[60%]">
+            explore our <span className="text-green-600">featured </span>{" "}
+            properties.
+          </h2>
+        ) : (
+          <h2 id="property_title" className="w-full">
+            personal <span className="text-green-600">support </span>
+            for buying, selling, and investing
+          </h2>
+        )}
+        <p id="property_desc bg-purple-400">{description}</p>
         <div
-          className={`property_btn bg-green-400 flex flex-row justify-between items-center ${
-            btn.length > 1 ? "w-full gap-3 p-1 h-8 rounded-full" : "w-[60%]"
+          className={`property_btn bg-green-300 flex flex-row justify-between items-center ${
+            btn.length > 1
+              ? "w-full gap-3 p-1 h-8 rounded-full xs:w-[50%] sm:w-[40%] md:w-[30%] lg:w-[25%]"
+              : "w-[70%] rounded-full xs:w-2/5 md:w-[30%] lg:w-[20%]"
           }`}
         >
           {btn.map((ele, i) => (
             <Button
               key={i}
               btnName={ele}
-              style={`rounded cursor-pointer rounded-0 bg-white flex justify-center p-1 ${
+              style={`${
                 btn.length > 1
-                  ? "w-[25%] flex-row justify-center items-center h-full rounded rounded-full"
-                  : "w-full"
+                  ? "w-[25%] bg-white flex-row justify-center items-center h-full rounded-full"
+                  : "w-full rounded cursor-pointer bg-transparent flex text-green-900 justify-center p-1"
               }`}
             />
           ))}
         </div>
       </div>
 
-      {/* 7. Added class mapping targeting list items inside your conditional list cards directly */}
-      <ul className="flex flex-wrap gap-5 capitalize w-full justify-start items-center">
+
+      <ul className="flex flex-wrap gap-5 capitalize w-full justify-start items-center xs:justify-center">
         {serviceList
           ? serviceList.map((ele, i) => (
-              // <li key={i} className=" aspect-square w-full flex-col gap-4">
-                <ServiceCard name={ele.name} key={i} index={i} img={ele.img} />
-              // </li>
+              <ServiceCard name={ele.name} key={i} index={i} img={ele.img} />
             ))
           : propertiesList.map((ele, i) => (
-              // <li key={i} className=">
-                <PropertiesCard
+              <PropertiesCard
                 index={i}
                 key={i}
-                  propertyImg={ele.img}
-                  propertyName={ele.name}
-                  propertyAddress={ele.address}
-                  propertyPrice={ele.price}
-                  additionalDetails={{
-                    bed: ele.bed,
-                    bath: ele.bath,
-                    size: ele.size,
-                  }}
-                />
+                propertyImg={ele.img}
+                propertyName={ele.name}
+                propertyAddress={ele.address}
+                propertyPrice={ele.price}
+                additionalDetails={{
+                  bed: ele.bed,
+                  bath: ele.bath,
+                  size: ele.size,
+                }}
+              />
               // </li>
             ))}
       </ul>

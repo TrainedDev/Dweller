@@ -7,15 +7,15 @@ gsap.registerPlugin(SplitText, ScrollTrigger);
 const Hero = () => {
   useGSAP(() => {
     const heroHeading = new SplitText(".hero_heading", {
-      type: "chars",
+      type: "words, chars",
     });
-    const heroDescription = new SplitText(".hero_descp", {
+    const heroDescription = new SplitText(".hero_desc", {
       type: "lines",
     });
 
     const t1 = gsap.timeline({
       scrollTrigger: {
-        target: "#home",
+        trigger: "#home",
         start: "top 1%",
         bottom: "bottom bottom",
         markers: true,
@@ -37,31 +37,35 @@ const Hero = () => {
       },
       { opacity: 1, y: "-10%" },
     );
+        return () => {
+      heroHeading.revert();
+      heroDescription.revert();
+    };
   });
 
   return (
     <section
       id="home"
-      className="w-screen min-h-dvh flex justify-center items-end bg-[url('/realestate_hero.png')] bg-cover bg-center bg-no-repeat"
+      className="w-full min-h-dvh flex justify-center items-end bg-[url('/realestate_hero.png')] bg-cover bg-center bg-no-repeat xs:justify-start"
     >
-      <ul className="w-full p-4 h-auto flex-col gap-4 items-center capitalize">
-        <li className="text-4xl w-full text-start tracking-wide font-medium ">
+      <ul className="w-full p-4 h-auto flex-col gap-4 items-center capitalize xs:w-[80%] md:items-start">
+        <li className=" w-full text-start">
           <h1 className="hero_heading">
             Discovery luxury. Live with pride & confidence.
           </h1>
         </li>
-        <li className="text-left w-full">
-          <p className="hero_descp text-slate-300 text-start leading-6 tracking-wide text-[16px]">
+        <li className="text-start w-fit backdrop-blur-xs">
+          <p className="hero_desc text-white/95 font-light text-start tracking-tight">
             brighthomes helps you explore high-end homes across top neighborhood
             with experts insight, curated tours, and smooth buying experience
             from start to finish.
           </p>
         </li>
-        <li className="hero_btn w-full flex gap-3 justify-start items-center">
-          <Button btnName={"explore homes"} style="hidden" />
+        <li className="hero_btn w-full flex gap-3 justify-start items-center xs:justify-start ">
+          <Button btnName="explore homes" style="hidden w-full bg-white p-2 text-center xs:block md:p-1 md:w-[30%]" />
           <Button
             btnName="book a consultation"
-            style="w-full bg-white p-2 text-center "
+            style="w-full bg-white p-2 text-center xs:text-nowrap md:p-1 md:w-[30%]"
           />
         </li>
       </ul>

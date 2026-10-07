@@ -22,25 +22,25 @@ body {
 
 @layer base {
   h1 {
-    @apply text-3xl leading-10; /* Small Mobile default */
+    @apply text-3xl leading-10 lg:text-4xl; /* Small Mobile default */
     @apply sm:text-3xl; /* Standard Mobile */
     @apply md:text-4xl; /* Tablet */
     @apply lg:text-5xl; /* Desktop */
   }
 
   h2 {
-    @apply text-[16px] font-bold;
+    @apply text-[16px] font-bold xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl;
   }
 
   p {
     @apply text-[14px] leading-relaxed xs:text-[15px]; /* Small Mobile */
     @apply sm:text-sm; /* Standard Mobile */
-    @apply md:text-[20px]; /* Tablet & Desktop */
+    @apply md:text-[17px]; /* Tablet & Desktop */
   }
   button {
     @apply text-[15px] capitalize leading-relaxed text-black; /* Small Mobile */
     @apply sm:text-sm; /* Standard Mobile */
-    @apply md:text-[20px]; /* Tablet & Desktop */
+    @apply md:text-[17px]; /* Tablet & Desktop */
   }
 }
 

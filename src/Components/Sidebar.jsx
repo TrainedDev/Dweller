@@ -7,7 +7,7 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`sidebar w-[60%] min-h-dvh absolute top-0 transition-transform ease-in duration-1000 capitalize z-30 ${!sidebar ? "-translate-x-100" : "translate-x-0 backdrop-blur-2xl"}`}
+      className={`sidebar w-[60%] min-h-dvh absolute top-0 transition-transform ease-in duration-1000 capitalize z-30 sm:hidden ${!sidebar ? "-translate-x-100" : "translate-x-0 backdrop-blur-2xl"}`}
     >
       <div
         onClick={() => setSidebar((prev) => !prev)}
