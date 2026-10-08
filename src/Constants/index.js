@@ -104,7 +104,7 @@ export const socialLinks = [
 ];
 
 export const contactInfo = {
-  email: "brightHomes@gmail.com",
+  email: "Dweller@gmail.com",
   phone: "+1 (123) 456-7890",
   address: "123 Main Street, Richmond, VA 23220",
 };

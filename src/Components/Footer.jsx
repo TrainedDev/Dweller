@@ -9,10 +9,10 @@ const Footer = () => {
           {/* Brand Identity Column */}
           <div className="md:col-span-6 flex flex-col gap-4 text-start">
             <h2 className="text-2xl font-semibold text-zinc-900 tracking-widest uppercase">
-              Brighthome
+              Dweller
             </h2>
             <p className="text-sm text-zinc-600 leading-relaxed max-w-md normal-case">
-              Brighthomes helps you explore premium homes, access expert
+              Dweller helps you explore premium homes, access expert
               guidance, and make real-estate decisions with confidence. From
               selling to buying to long-term investment strategy, we are here to
               support your goals.

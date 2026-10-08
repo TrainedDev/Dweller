@@ -37,7 +37,7 @@ const Experience = () => {
     t1.fromTo(
       "#exp_list",
       { opacity: 0, y: "5%" },
-      { opacity: 1, stagger: 0.05, y: "0%" },
+      { opacity: 1, stagger: 0.03, y: "0%" },
     );
   });
 

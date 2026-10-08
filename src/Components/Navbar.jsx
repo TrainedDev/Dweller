@@ -7,7 +7,7 @@ const Navbar = () => {
 
   return (
     <nav className="flex-row justify-between w-screen capitalize p-2 absolute z-20 h-20 items-center">
-      <h2>Brighthome</h2>
+      <h2>Dweller</h2>
 
       <Menu
         onClick={() => setSidebar((prev) => !prev)}

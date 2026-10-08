@@ -3,7 +3,7 @@ export const ServiceCard = ({ name, img, index }) => {
     // <li className=" aspect-square w-62.5 flex-col gap-4">
     <li
       key={index}
-      className="property_card_item h-70 w-full font-bold flex-col gap-4 rounded-md p-1 border border-olive-500/10 bg-blue-600/5 xs:w-62.5 lg:w-85 lg:h-90"
+      className="property_card_item h-70 w-full font-bold flex-col gap-4 rounded-md p-1 border border-olive-500/10 bg-blue-600/5 xs:w-62.5 lg:w-85 lg:h-90 xl:w-100 xl:h-100"
     >
       <img
         src={img}
@@ -26,12 +26,12 @@ export const PropertiesCard = ({
   return (
     <li
       key={index}
-      className="w-full property_card_item h-auto p-1 rounded-xl bg-white/7 xs:w-62.5 sm:w-70 md:w-85 "
+      className="w-full property_card_item h-auto p-1 rounded-xl bg-white/7 xs:w-62.5 sm:w-70 md:w-85 xl:w-100 xl:h-110"
     >
       <div className="w-full h-auto flex-col gap-5">
         <img
           src={propertyImg}
-          className="h-40 w-full object-cover object-center rounded-xl sm:h-50 md:h-70"
+          className="h-40 w-full object-cover object-center rounded-xl sm:h-50 md:h-70 lg:h-75"
           alt="certain image"
         />
         <div className="flex-col justify-center gap-4 items-center w-full">

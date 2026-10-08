@@ -35,7 +35,7 @@ const Properties = ({
         },
       });
 
-      t1.fromTo(titleAnim.chars, { opacity: 0 }, { opacity: 1, stagger: 0.02 });
+      t1.fromTo(titleAnim.chars, { opacity: 0 }, { opacity: 1, stagger: 0.03 });
       t1.fromTo(
         descAnim.lines,
         { opacity: 0, y: "100%" },

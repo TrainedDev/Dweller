@@ -57,7 +57,7 @@ const Hero = () => {
         </li>
         <li className="text-start w-full backdrop-blur-xs">
           <p className="hero_desc text-white/95 font-light text-start tracking-tight">
-            brighthomes helps you explore high-end homes across top neighborhood
+            Dweller helps you explore high-end homes across top neighborhood
             with experts insight, curated tours, and smooth buying experience
             from start to finish.
           </p>
