@@ -11,6 +11,7 @@ const Hero = () => {
     });
     const heroDescription = new SplitText(".hero_desc", {
       type: "lines",
+      linesClass:"xs:w-fit"
     });
 
     const t1 = gsap.timeline({
@@ -18,7 +19,7 @@ const Hero = () => {
         trigger: "#home",
         start: "top 1%",
         bottom: "bottom bottom",
-        markers: true,
+        // markers: true,
         // scrub:true
       },
     });
@@ -27,7 +28,7 @@ const Hero = () => {
     t1.fromTo(
       heroDescription.lines,
       { opacity: 0 },
-      { opacity: 1, stagger: 0.08 },
+      { opacity: 1, stagger: 0.03 },
     );
     t1.fromTo(
       ".hero_btn",
@@ -50,11 +51,11 @@ const Hero = () => {
     >
       <ul className="w-full p-4 h-auto flex-col gap-4 items-center capitalize xs:w-[80%] md:items-start">
         <li className=" w-full text-start">
-          <h1 className="hero_heading">
+          <h1 className="hero_heading normal-case">
             Discovery luxury. Live with pride & confidence.
           </h1>
         </li>
-        <li className="text-start w-fit backdrop-blur-xs">
+        <li className="text-start w-full backdrop-blur-xs">
           <p className="hero_desc text-white/95 font-light text-start tracking-tight">
             brighthomes helps you explore high-end homes across top neighborhood
             with experts insight, curated tours, and smooth buying experience
@@ -62,7 +63,8 @@ const Hero = () => {
           </p>
         </li>
         <li className="hero_btn w-full flex gap-3 justify-start items-center xs:justify-start ">
-          <Button btnName="explore homes" style="hidden w-full bg-white p-2 text-center xs:block md:p-1 md:w-[30%]" />
+          <Button btnName="explore homes" style="hidden w-full bg-white p-2 text-center xs:block
+          xs:text-nowrap md:p-1 md:w-[30%]" />
           <Button
             btnName="book a consultation"
             style="w-full bg-white p-2 text-center xs:text-nowrap md:p-1 md:w-[30%]"

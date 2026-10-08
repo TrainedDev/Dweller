@@ -17,13 +17,12 @@ const Properties = ({
 
   useGSAP(
     () => {
-      // 1. By scoping this to containerRef, "#property_title" only selects inside THIS component instance
       const titleAnim = new SplitText("#property_title", {
         type: "words,chars",
       });
       const descAnim = new SplitText("#property_desc", {
         type: "lines",
-        linesClass: "w-fit text-nowrap",
+        linesClass: "w-fit xs:text-nowrap",
       });
 
       const t1 = gsap.timeline({
@@ -31,16 +30,16 @@ const Properties = ({
           trigger: containerRef.current,
           start: "top 80%",
           end: "bottom bottom",
-          // toggleActions: "play none none reverse", // 4. Smooth reset behaviors on scrolling
+          // toggleActions: "play none none reverse",
           // markers: true,
         },
       });
 
-      t1.fromTo(titleAnim.chars, { opacity: 0 }, { opacity: 1, stagger: 0.08 });
+      t1.fromTo(titleAnim.chars, { opacity: 0 }, { opacity: 1, stagger: 0.02 });
       t1.fromTo(
         descAnim.lines,
         { opacity: 0, y: "100%" },
-        { opacity: 1, stagger: 0.05, y: "-10%" },
+        { opacity: 1, stagger: 0.02, y: "-10%" },
       );
       t1.fromTo(
         ".property_btn",
@@ -53,7 +52,7 @@ const Properties = ({
       t1.fromTo(
         ".property_card_item",
         { opacity: 0, y: "30px" },
-        { opacity: 1, stagger: 0.05, y: "0px" },
+        { opacity: 1, stagger: 0.02, y: "0px" },
       );
       return () => {
         titleAnim.revert();
@@ -75,17 +74,17 @@ const Properties = ({
     >
       <div className="flex flex-col justify-center items-start w-full h-auto capitalize text-left gap-5 xs:items-center xs:text-center md:w-[90%]">
         {propertiesList ? (
-          <h2 id="property_title" className="w-[60%]">
-            explore our <span className="text-green-600">featured </span>{" "}
+          <h2 id="property_title" className="w-full">
+            Explore our <span className="text-green-600">featured </span>{" "}
             properties.
           </h2>
         ) : (
           <h2 id="property_title" className="w-full">
-            personal <span className="text-green-600">support </span>
+            Personal <span className="text-green-600">support </span>
             for buying, selling, and investing
           </h2>
         )}
-        <p id="property_desc bg-purple-400">{description}</p>
+        <p id="property_desc" className="xs:flex xs:flex-wrap xs:justify-center xs:items-center">{description}</p>
         <div
           className={`property_btn bg-green-300 flex flex-row justify-between items-center ${
             btn.length > 1
